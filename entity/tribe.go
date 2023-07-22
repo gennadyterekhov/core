@@ -1,4 +1,4 @@
-package core
+package entity
 
 type Tribe struct {
 	Population Population `json:"population"`

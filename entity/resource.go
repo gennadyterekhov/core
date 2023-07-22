@@ -1,4 +1,4 @@
-package core
+package entity
 
 type Resource struct {
 	Food       int `json:"food"`

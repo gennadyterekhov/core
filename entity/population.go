@@ -1,4 +1,4 @@
-package core
+package entity
 
 type Population struct {
 	Men             int `json:"men"`

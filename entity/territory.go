@@ -1,4 +1,4 @@
-package core
+package entity
 
 type Territory struct {
 	Food       int    `json:"food"`

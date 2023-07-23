@@ -53,3 +53,16 @@ func (territory *Territory) GetTotal(name string) int {
 	return accumulator
 
 }
+
+func (territory *Territory) addTile(newTile Tile) {
+
+	territory.Tiles = append(territory.Tiles, newTile)
+
+}
+
+func (territory *Territory) updateResources() {
+	territory.Food = territory.GetTotalFood()
+	territory.TradingAbility = territory.GetTotalTradingAbility()
+	territory.Production = territory.GetTotalProduction()
+	territory.Culture = territory.GetTotalCulture()
+}

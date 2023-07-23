@@ -18,3 +18,17 @@ func (tribe *Tribe) GetNewPopulationCount(fertility int) int {
 	}
 	return upperBound
 }
+
+func (tribe *Tribe) MakeTerritorialDiscovery() {
+
+	newTile := discoverNewTile()
+	tribe.Territory.addTile(newTile)
+	tribe.Territory.updateResources()
+}
+func discoverNewTile() Tile {
+
+	newTile := Tile{
+		Resource: Pasture,
+	}
+	return newTile
+}

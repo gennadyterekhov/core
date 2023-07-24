@@ -8,6 +8,19 @@ type Territory struct {
 	Tiles          []Tile `json:"tiles"`
 }
 
+func createStarterTerritory() Territory {
+	territory := Territory{
+		Food:           0,
+		TradingAbility: 0,
+		Production:     0,
+		Culture:        0,
+		Tiles:          createStarterTiles(),
+	}
+	territory.updateResources()
+
+	return territory
+}
+
 func (territory *Territory) GetTotalFood() int {
 	accumulator := 0
 	for i := 0; i < len(territory.Tiles); i++ {

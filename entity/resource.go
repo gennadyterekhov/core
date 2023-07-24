@@ -1,7 +1,5 @@
 package entity
 
-// const
-
 type Resource struct {
 	Food           int `json:"food"`
 	TradingAbility int `json:"trading_ability"`

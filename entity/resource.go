@@ -1,10 +1,38 @@
 package entity
 
+// const
+
 type Resource struct {
 	Food           int `json:"food"`
 	TradingAbility int `json:"trading_ability"`
 	Production     int `json:"production"`
 	Culture        int `json:"culture"`
+}
+
+const ResourcesCount = 10
+
+const ResourceNamePasture = "Pasture"
+const ResourceNameStone = "Stone"
+const ResourceNameMetal = "Metal"
+const ResourceNameFruit = "Fruit"
+const ResourceNameLake = "Lake"
+const ResourceNameGold = "Gold"
+const ResourceNameSilver = "Silver"
+const ResourceNameForest = "Forest"
+const ResourceNameDesert = "Desert"
+const ResourceNameRiver = "River"
+
+var ResourceNames = [ResourcesCount]string{
+	"Pasture",
+	"Stone",
+	"Metal",
+	"Fruit",
+	"Lake",
+	"Gold",
+	"Silver",
+	"Forest",
+	"Desert",
+	"River",
 }
 
 var (
@@ -69,3 +97,16 @@ var (
 		Culture:        1,
 	}
 )
+
+var ResourceNameToResourceMap map[string](*Resource) = map[string](*Resource){
+	"Pasture": &Pasture,
+	"Stone":   &Stone,
+	"Metal":   &Metal,
+	"Fruit":   &Fruit,
+	"Lake":    &Lake,
+	"Gold":    &Gold,
+	"Silver":  &Silver,
+	"Forest":  &Forest,
+	"Desert":  &Desert,
+	"River":   &River,
+}

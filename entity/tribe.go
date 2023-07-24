@@ -1,5 +1,10 @@
 package entity
 
+import (
+	"math/rand"
+	"time"
+)
+
 type Tribe struct {
 	Population Population `json:"population"`
 	Name       string     `json:"name"`
@@ -20,15 +25,23 @@ func (tribe *Tribe) GetNewPopulationCount(fertility int) int {
 }
 
 func (tribe *Tribe) MakeTerritorialDiscovery() {
-
 	newTile := discoverNewTile()
 	tribe.Territory.addTile(newTile)
 	tribe.Territory.updateResources()
 }
-func discoverNewTile() Tile {
 
+func discoverNewTile() Tile {
 	newTile := Tile{
-		Resource: Pasture,
+		Resource: getRandomResource(),
 	}
 	return newTile
+}
+
+func getRandomResource() *Resource {
+	randomGenerator := rand.New(rand.NewSource(time.Now().UnixNano()))
+	randomIndex := randomGenerator.Intn(ResourcesCount)
+	randomName := ResourceNames[randomIndex]
+	randomResource := ResourceNameToResourceMap[randomName]
+
+	return randomResource
 }

@@ -8,13 +8,6 @@ type Territory struct {
 	Tiles          []Tile `json:"tiles"`
 }
 
-var currencyToIndexMap = map[string]int{
-	"food":            0,
-	"trading_ability": 1,
-	"production":      2,
-	"culture":         3,
-}
-
 func (territory *Territory) GetTotalFood() int {
 	accumulator := 0
 	for i := 0; i < len(territory.Tiles); i++ {
@@ -47,17 +40,8 @@ func (territory *Territory) GetTotalCulture() int {
 	return accumulator
 }
 
-func (territory *Territory) GetTotal(name string) int {
-	accumulator := 0
-
-	return accumulator
-
-}
-
 func (territory *Territory) addTile(newTile Tile) {
-
 	territory.Tiles = append(territory.Tiles, newTile)
-
 }
 
 func (territory *Territory) updateResources() {

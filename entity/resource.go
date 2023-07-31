@@ -1,11 +1,12 @@
 package entity
 
 type Resource struct {
-	Quantity       int `json:"quantity"` // how many cards of this type are there
-	Food           int `json:"food"`
-	TradingAbility int `json:"trading_ability"`
-	Production     int `json:"production"`
-	Culture        int `json:"culture"`
+	Name           string `json:"name"`
+	Quantity       int    `json:"quantity"` // how many cards of this type are there
+	Food           int    `json:"food"`
+	TradingAbility int    `json:"trading_ability"`
+	Production     int    `json:"production"`
+	Culture        int    `json:"culture"`
 }
 
 const ResourcesCount = 10
@@ -36,6 +37,7 @@ var ResourceNames = [ResourcesCount]string{
 
 var (
 	Pasture Resource = Resource{
+		Name:           ResourceNamePasture,
 		Quantity:       10,
 		Food:           3,
 		TradingAbility: 0,
@@ -43,6 +45,7 @@ var (
 		Culture:        0,
 	}
 	Stone Resource = Resource{
+		Name:           ResourceNameStone,
 		Quantity:       10,
 		Food:           0,
 		TradingAbility: 0,
@@ -50,6 +53,7 @@ var (
 		Culture:        1,
 	}
 	Metal Resource = Resource{
+		Name:           ResourceNameMetal,
 		Quantity:       10,
 		Food:           0,
 		TradingAbility: 1,
@@ -57,6 +61,7 @@ var (
 		Culture:        0,
 	}
 	Fruit Resource = Resource{
+		Name:           ResourceNameFruit,
 		Quantity:       8,
 		Food:           2,
 		TradingAbility: 1,
@@ -64,6 +69,7 @@ var (
 		Culture:        0,
 	}
 	Lake Resource = Resource{
+		Name:           ResourceNameLake,
 		Quantity:       4,
 		Food:           2,
 		TradingAbility: 0,
@@ -71,6 +77,7 @@ var (
 		Culture:        1,
 	}
 	Gold Resource = Resource{
+		Name:           ResourceNameGold,
 		Quantity:       2,
 		Food:           0,
 		TradingAbility: 4,
@@ -78,6 +85,7 @@ var (
 		Culture:        0,
 	}
 	Silver Resource = Resource{
+		Name:           ResourceNameSilver,
 		Quantity:       4,
 		Food:           0,
 		TradingAbility: 2,
@@ -85,6 +93,7 @@ var (
 		Culture:        1,
 	}
 	Forest Resource = Resource{
+		Name:           ResourceNameForest,
 		Quantity:       20,
 		Food:           1,
 		TradingAbility: 0,
@@ -92,6 +101,7 @@ var (
 		Culture:        0,
 	}
 	Desert Resource = Resource{
+		Name:           ResourceNameDesert,
 		Quantity:       6,
 		Food:           0,
 		TradingAbility: 1,
@@ -99,6 +109,7 @@ var (
 		Culture:        1,
 	}
 	River Resource = Resource{
+		Name:           ResourceNameRiver,
 		Quantity:       6,
 		Food:           1,
 		TradingAbility: 2,

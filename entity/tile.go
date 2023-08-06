@@ -8,7 +8,7 @@ const DefaultTilesCount = 2
 
 func createStarterTiles() []Tile {
 	return []Tile{
-		Tile{&Forest},
-		Tile{&River},
+		Tile{ResourceNameToResourceMap[ResourceNamePasture]},
+		Tile{ResourceNameToResourceMap[ResourceNameForest]},
 	}
 }

@@ -23,110 +23,97 @@ const ResourceNameDesert = "Desert"
 const ResourceNameRiver = "River"
 
 var ResourceNames = [ResourcesCount]string{
-	"Pasture",
-	"Stone",
-	"Metal",
-	"Fruit",
-	"Lake",
-	"Gold",
-	"Silver",
-	"Forest",
-	"Desert",
-	"River",
+	ResourceNamePasture,
+	ResourceNameStone,
+	ResourceNameMetal,
+	ResourceNameFruit,
+	ResourceNameLake,
+	ResourceNameGold,
+	ResourceNameSilver,
+	ResourceNameForest,
+	ResourceNameDesert,
+	ResourceNameRiver,
 }
 
-var (
-	Pasture Resource = Resource{
+var ResourceNameToResourceMap map[string](*Resource) = map[string](*Resource){
+	ResourceNamePasture: &Resource{
 		Name:           ResourceNamePasture,
 		Quantity:       10,
 		Food:           3,
 		TradingAbility: 0,
 		Production:     0,
 		Culture:        0,
-	}
-	Stone Resource = Resource{
+	},
+	ResourceNameStone: &Resource{
 		Name:           ResourceNameStone,
 		Quantity:       10,
 		Food:           0,
 		TradingAbility: 0,
 		Production:     2,
 		Culture:        1,
-	}
-	Metal Resource = Resource{
+	},
+	ResourceNameMetal: &Resource{
 		Name:           ResourceNameMetal,
 		Quantity:       10,
 		Food:           0,
 		TradingAbility: 1,
 		Production:     2,
 		Culture:        0,
-	}
-	Fruit Resource = Resource{
+	},
+	ResourceNameFruit: &Resource{
 		Name:           ResourceNameFruit,
 		Quantity:       8,
 		Food:           2,
 		TradingAbility: 1,
 		Production:     0,
 		Culture:        0,
-	}
-	Lake Resource = Resource{
+	},
+	ResourceNameLake: &Resource{
 		Name:           ResourceNameLake,
 		Quantity:       4,
 		Food:           2,
 		TradingAbility: 0,
 		Production:     0,
 		Culture:        1,
-	}
-	Gold Resource = Resource{
+	},
+	ResourceNameGold: &Resource{
 		Name:           ResourceNameGold,
 		Quantity:       2,
 		Food:           0,
 		TradingAbility: 4,
 		Production:     0,
 		Culture:        0,
-	}
-	Silver Resource = Resource{
+	},
+	ResourceNameSilver: &Resource{
 		Name:           ResourceNameSilver,
 		Quantity:       4,
 		Food:           0,
 		TradingAbility: 2,
 		Production:     0,
 		Culture:        1,
-	}
-	Forest Resource = Resource{
+	},
+	ResourceNameForest: &Resource{
 		Name:           ResourceNameForest,
 		Quantity:       20,
 		Food:           1,
 		TradingAbility: 0,
 		Production:     2,
 		Culture:        0,
-	}
-	Desert Resource = Resource{
+	},
+	ResourceNameDesert: &Resource{
 		Name:           ResourceNameDesert,
 		Quantity:       6,
 		Food:           0,
 		TradingAbility: 1,
 		Production:     0,
 		Culture:        1,
-	}
-	River Resource = Resource{
+	},
+	ResourceNameRiver: &Resource{
 		Name:           ResourceNameRiver,
 		Quantity:       6,
 		Food:           1,
 		TradingAbility: 2,
 		Production:     0,
 		Culture:        1,
-	}
-)
-
-var ResourceNameToResourceMap map[string](*Resource) = map[string](*Resource){
-	"Pasture": &Pasture,
-	"Stone":   &Stone,
-	"Metal":   &Metal,
-	"Fruit":   &Fruit,
-	"Lake":    &Lake,
-	"Gold":    &Gold,
-	"Silver":  &Silver,
-	"Forest":  &Forest,
-	"Desert":  &Desert,
-	"River":   &River,
+	},
 }

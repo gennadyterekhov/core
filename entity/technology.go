@@ -11,19 +11,19 @@ type Technology struct {
 const TechnologiesCount = 15
 
 const (
-	TechnologyNamePlough             = "Forest Fire"
-	TechnologyNamePrimitiveWriting   = "Flood"
-	TechnologyNameAdvancedWriting    = "Nessie"
-	TechnologyNameBronzeWeapons      = "Blessing"
-	TechnologyNameStoneWorking       = "Desertification"
-	TechnologyNameIdols              = "Divine Shield"
-	TechnologyNamePottery            = "Demilitarization"
-	TechnologyNameAnimalHusbandry    = "Columbus"
+	TechnologyNamePlough             = "Plough"
+	TechnologyNamePrimitiveWriting   = "Primitive Writing"
+	TechnologyNameAdvancedWriting    = "Advanced Writing"
+	TechnologyNameBronzeWeapons      = "Bronze Weapons"
+	TechnologyNameStoneWorking       = "Stone Working"
+	TechnologyNameIdols              = "Idols"
+	TechnologyNamePottery            = "Pottery"
+	TechnologyNameAnimalHusbandry    = "Animal Husbandry"
 	TechnologyNameHunting            = "Hunting"
 	TechnologyNameArchery            = "Archery"
-	TechnologyNameOrganizedArmy      = "OrganizedArmy"
+	TechnologyNameOrganizedArmy      = "Organized Army"
 	TechnologyNameFishing            = "Fishing"
-	TechnologyNameMusicalInstruments = "MusicalInstruments"
+	TechnologyNameMusicalInstruments = "Musical Instruments"
 	TechnologyNamePoetry             = "Poetry"
 	TechnologyNameCalendar           = "Calendar"
 )
@@ -49,42 +49,48 @@ var TechnologyNames = [TechnologiesCount]string{
 var TechnologyNameToTechnologyMap map[string](*Technology) = map[string](*Technology){
 	TechnologyNamePlough: &Technology{
 		Name:          TechnologyNamePlough,
-		Description:   "Add 2 to harvest result. Throw 2 dice if " + TechnologyNameAnimalHusbandry + " is discovered",
+		Description:   "Harvest result +2. Throw 2 dice if " + TechnologyNameAnimalHusbandry + " is discovered",
 		Prerequisites: map[string]bool{TechnologyNameCalendar: true},
 	},
 	TechnologyNamePrimitiveWriting: &Technology{
 		Name:          TechnologyNamePrimitiveWriting,
-		Description:   "+3 Wealth",
+		Description:   fmt.Sprintf("%v +3", CurrencyNameWealth),
 		Prerequisites: map[string]bool{TechnologyNamePottery: true},
 	},
 	TechnologyNameAdvancedWriting: &Technology{
 		Name:          TechnologyNameAdvancedWriting,
-		Description:   "Culture * 2",
+		Description:   fmt.Sprintf("%v *2", CurrencyNameCulture),
 		Prerequisites: map[string]bool{TechnologyNamePrimitiveWriting: true},
 	},
 	TechnologyNameBronzeWeapons: &Technology{
-		Name:          TechnologyNameBronzeWeapons,
-		Description:   ResourceNameMetal + " +1 wealth +1 production. Combat readiness * 2",
+		Name: TechnologyNameBronzeWeapons,
+		Description: fmt.Sprintf("%v +1 %v +1 %v. %v *2",
+			ResourceNameMetal,
+			CurrencyNameWealth,
+			CurrencyNameProduction,
+			CurrencyNameCombatReadiness,
+		),
 		Prerequisites: map[string]bool{TechnologyNameStoneWorking: true},
 	},
 	TechnologyNameStoneWorking: &Technology{
-		Name:          TechnologyNameStoneWorking,
-		Description:   ResourceNameStone + "+2 production +1culture",
+		Name:        TechnologyNameStoneWorking,
+		Description: fmt.Sprintf("%v +2 %v +1 %v", ResourceNameStone, CurrencyNameProduction, CurrencyNameCulture),
+
 		Prerequisites: map[string]bool{},
 	},
 	TechnologyNameIdols: &Technology{
 		Name:          TechnologyNameIdols,
-		Description:   ResourceNameStone + "+2 culture",
+		Description:   fmt.Sprintf("%v +2 %v", ResourceNameStone, CurrencyNameCulture),
 		Prerequisites: map[string]bool{TechnologyNameStoneWorking: true},
 	},
 	TechnologyNamePottery: &Technology{
 		Name:          TechnologyNamePottery,
-		Description:   "Add 2 to harvest result",
+		Description:   "Harvest result +2",
 		Prerequisites: map[string]bool{},
 	},
 	TechnologyNameAnimalHusbandry: &Technology{
 		Name:          TechnologyNameAnimalHusbandry,
-		Description:   ResourceNamePasture + " +2 " + CurrencyNameFood,
+		Description:   fmt.Sprintf("%v +2 %v", ResourceNamePasture, CurrencyNameFood),
 		Prerequisites: map[string]bool{},
 	},
 

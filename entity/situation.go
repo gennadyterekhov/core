@@ -14,9 +14,9 @@ const SituationNameNessie = "Nessie"
 const SituationNameBlessing = "Blessing"
 const SituationNameDesertification = "Desertification"
 const SituationNameDivineShield = "Divine Shield"
-const SituationNameDemilitarization = "Demilitarization"
+const SituationNamePacifism = "Pacifism"
 const SituationNameColumbus = "Columbus"
-const SituationNamePoliticalInstablility = "Political Instablility"
+const SituationNamePoliticalInstablility = "Vulnerability"
 const SituationNameNothing = "Nothing"
 
 var SituationNames = [SituationsCount]string{
@@ -26,7 +26,7 @@ var SituationNames = [SituationsCount]string{
 	SituationNameBlessing,
 	SituationNameDesertification,
 	SituationNameDivineShield,
-	SituationNameDemilitarization,
+	SituationNamePacifism,
 	SituationNameColumbus,
 	SituationNamePoliticalInstablility,
 	SituationNameNothing,
@@ -67,8 +67,8 @@ var SituationNameToSituationMap map[string](*Situation) = map[string](*Situation
 		Description: "You win every fight if defending",
 		Quantity:    2,
 	},
-	SituationNameDemilitarization: &Situation{
-		Name:        SituationNameDemilitarization,
+	SituationNamePacifism: &Situation{
+		Name:        SituationNamePacifism,
 		Description: "Nobody can arm next round",
 		Quantity:    5,
 	},
